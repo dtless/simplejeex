@@ -17,8 +17,17 @@
             <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.github.dttimes.simplejeex</groupId>
             <artifactId>coc-persistence</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.dttimes.simplejeex</groupId>
+            <artifactId>coc-service</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

@@ -9,17 +9,12 @@
         <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>coc-core</artifactId>
+    <artifactId>coc-service</artifactId>
     <dependencies>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-core</artifactId>
-            <scope>compile</scope>
+            <groupId>com.github.dttimes.simplejeex</groupId>
+            <artifactId>coc-persistence</artifactId>
+            <version>${revision}</version>
         </dependency>
     </dependencies>
 </project>

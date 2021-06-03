@@ -23,7 +23,7 @@ public class BaseModel<T extends Model<T>> extends Model<T> {
      * 逻辑删除标志位(mybatis-plus操作，不可手工修改)
      */
     @TableField(value = MP.COLUMN_DELETED)
-    @TableLogic(value = "1", delval = "1")
+    @TableLogic(value = "0", delval = "1")
     private boolean deleted;
     /**
      * 创建时间

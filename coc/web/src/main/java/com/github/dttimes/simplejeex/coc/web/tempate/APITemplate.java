@@ -1,7 +1,8 @@
-package com.github.dttimes.simplejeex.coc.web;
+package com.github.dttimes.simplejeex.coc.web.tempate;
 
 import com.github.dttimes.simplejeex.coc.core.constants.Ex;
 import com.github.dttimes.simplejeex.coc.core.exception.BizException;
+import com.github.dttimes.simplejeex.coc.web.R;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

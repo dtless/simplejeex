@@ -1,10 +1,15 @@
 package com.github.dttimes.simplejeex.coc.core.convert;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.github.dttimes.simplejeex.coc.core.base.Paging;
+import com.github.dttimes.simplejeex.lang.Ak47;
 import com.github.dttimes.simplejeex.lang.base.Checks;
 import org.springframework.core.convert.converter.Converter;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 /**
  * Bean转换辅助类
@@ -15,11 +20,11 @@ import java.util.function.Consumer;
  */
 public class Converters {
 
-    public static final <S, T> T convert(Converter<S, T> converter, S source) {
-        return convert(converter, source, null);
+    public static final <S, T> T convert(S source, Converter<S, T> converter) {
+        return convert(source, converter, null);
     }
 
-    public static final <S, T> T convert(Converter<S, T> converter, S source, Consumer<T> then) {
+    public static final <S, T> T convert(S source, Converter<S, T> converter, Consumer<T> then) {
         Checks.nonNull(converter, "Bean转换器不能为空");
         if (Objects.isNull(source)) {
             return null;
@@ -31,4 +36,12 @@ public class Converters {
         return target;
     }
 
+    public static final <S, T> List<T> convertList(List<S> sourceList, Converter<S, T> converter, Consumer<T> then) {
+        Checks.nonNull(converter, "BeanList转换器不能为空");
+
+        return Ak47.defaultList(sourceList)
+                .stream()
+                .map(source -> convert(source, converter, then))
+                .collect(Collectors.toList());
+    }
 }

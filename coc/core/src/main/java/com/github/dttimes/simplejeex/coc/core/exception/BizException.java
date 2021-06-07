@@ -7,4 +7,10 @@ package com.github.dttimes.simplejeex.coc.core.exception;
  * @author 王辉
  */
 public class BizException extends SimpleJeexException {
+    public BizException() {
+    }
+
+    public BizException(String message) {
+        super(message);
+    }
 }

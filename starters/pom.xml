@@ -12,6 +12,7 @@
     <artifactId>starters</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <module>dttimes-spring-boot-starter-security</module>
         <module>dttimes-spring-boot-starter-devtools</module>
     </modules>
     <dependencyManagement>

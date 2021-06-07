@@ -7,4 +7,10 @@ package com.github.dttimes.simplejeex.coc.core.exception;
  * @author 王辉
  */
 public class SimpleJeexException extends RuntimeException {
+    public SimpleJeexException() {
+    }
+
+    public SimpleJeexException(String message) {
+        super(message);
+    }
 }

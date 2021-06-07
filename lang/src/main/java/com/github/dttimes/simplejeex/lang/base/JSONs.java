@@ -15,6 +15,8 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -97,5 +99,9 @@ public class JSONs {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    public static final <T> T readValue(InputStream ins, Class<T> clazz) throws IOException {
+        return objectMapper.readValue(ins, clazz);
     }
 }

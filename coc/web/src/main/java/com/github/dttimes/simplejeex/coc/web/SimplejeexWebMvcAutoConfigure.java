@@ -1,10 +1,12 @@
 package com.github.dttimes.simplejeex.coc.web;
 
+import com.github.dttimes.simplejeex.coc.web.conf.WebJacksonConfiguration;
 import com.github.dttimes.simplejeex.coc.web.exception.GlobalWebExceptionAdvice;
 import com.github.dttimes.simplejeex.lang.base.Hosts;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.web.context.WebServerInitializedEvent;
 import org.springframework.context.ApplicationListener;
@@ -18,6 +20,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author 王輝
  */
 @ConditionalOnWebApplication
+@ImportAutoConfiguration(WebJacksonConfiguration.class)
 public class SimplejeexWebMvcAutoConfigure implements ApplicationListener<WebServerInitializedEvent>, WebMvcConfigurer {
     private static final Logger log = LoggerFactory.getLogger(SimplejeexWebMvcAutoConfigure.class);
 

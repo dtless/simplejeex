@@ -13,4 +13,8 @@ public class SimpleJeexException extends RuntimeException {
     public SimpleJeexException(String message) {
         super(message);
     }
+
+    public SimpleJeexException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

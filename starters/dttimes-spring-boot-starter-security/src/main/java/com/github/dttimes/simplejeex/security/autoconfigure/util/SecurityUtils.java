@@ -22,17 +22,21 @@ public class SecurityUtils {
     private static final Logger log = LoggerFactory.getLogger(SecurityUtils.class);
 
     public static void sendError(HttpServletResponse response, HttpStatus status, String message) {
-        send(response, status, message);
+        send(response, status, false, message);
     }
 
     public static void sendOk(HttpServletResponse response, String message) {
-        send(response, HttpStatus.OK, message);
+        send(response, HttpStatus.OK, true, message);
     }
 
-    private static void send(HttpServletResponse response, HttpStatus status, String message) {
+    public static void send(HttpServletResponse response, HttpStatus status, boolean ok, String message) {
+        send(response, status, (ok ? R.ok() : R.fail()).message(message));
+    }
+
+    public static void send(HttpServletResponse response, HttpStatus status, R r) {
         Objects.requireNonNull(response);
         Objects.requireNonNull(status);
-        Objects.requireNonNull(message);
+        Objects.requireNonNull(r);
 
         if (response.isCommitted()) {
             if (log.isWarnEnabled()) {
@@ -43,7 +47,7 @@ public class SecurityUtils {
         response.setContentType(Webs.CONTENT_TYPE_JSON_UTF8);
         try {
             response.setStatus(status.value());
-            response.getWriter().write(JSONs.string(R.fail(message)));
+            response.getWriter().write(JSONs.string(r));
             response.flushBuffer();
         } catch (IOException e) {
             if (log.isErrorEnabled()) {

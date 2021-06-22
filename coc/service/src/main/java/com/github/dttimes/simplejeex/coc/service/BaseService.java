@@ -11,6 +11,7 @@ import com.github.dttimes.simplejeex.coc.core.convert.Converters;
 import com.github.dttimes.simplejeex.coc.core.convert.DefaultBeanCopyConverter;
 import org.springframework.core.convert.converter.Converter;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
 
@@ -21,11 +22,7 @@ import java.util.function.Consumer;
  * @author 王輝
  */
 public class BaseService<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> implements IService<T> {
-
-    protected <S, T> T convert(S source, Consumer<T> then) {
-        return null;
-    }
-
+    /*--------------------自定义Bean转换器--------------------------------*/
     protected <S, T> T convert(S source, Converter<S, T> converter) {
         return convert(source, converter, null);
     }
@@ -33,6 +30,16 @@ public class BaseService<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> i
     protected <S, T> T convert(S source, Converter<S, T> converter, Consumer<T> then) {
         return Converters.convert(source, converter, then);
     }
+
+    /*--------------------默认Bean转换器--------------------------------*/
+    protected <S, T> T convert(S source, Class<T> clazz) {
+        return convert(source, clazz, null);
+    }
+
+    protected <S, T> T convert(S source, Class<T> clazz, Consumer<T> then) {
+        return convert(source, new DefaultBeanCopyConverter<S, T>(clazz), then);
+    }
+
 
     protected <S, T> Paging<T> convert(IPage<S> page, Converter<S, T> converter) {
         return convert(page, converter, null);
@@ -68,5 +75,9 @@ public class BaseService<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> i
             p.setSize(param.getSize());
         }
         return p;
+    }
+
+    public <S, T> List<T> convertList(List<S> sourceList, Class<T> clazz) {
+        return Converters.convertList(sourceList, clazz);
     }
 }

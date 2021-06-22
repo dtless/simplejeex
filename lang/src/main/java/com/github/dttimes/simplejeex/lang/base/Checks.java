@@ -29,6 +29,14 @@ public class Checks {
         }
     }
 
+    public static final void isFalse(Boolean value) {
+
+    }
+
+    public static final void isFalse(Boolean value, String message) {
+
+    }
+
     public static final void positive(Integer val) {
         positive(val, "不能为空并且必须为正整数");
     }
@@ -38,27 +46,27 @@ public class Checks {
     }
 
 
-    public void hasLen(String text) {
+    public static final void hasLen(String text) {
 
     }
 
-    public void hasLen(String text, String message) {
+    public static final void hasLen(String text, String message) {
 
     }
 
-    public void lenLess(String text, int length) {
+    public static final void lenLess(String text, int length) {
 
     }
 
-    public void lenLess(String text, int length, String message) {
+    public static final void lenLess(String text, int length, String message) {
 
     }
 
-    public void lenLessEquals(String text, int length) {
+    public static final void lenLessEquals(String text, int length) {
 
     }
 
-    public void lenLessEquals(String text, int length, String message) {
+    public static final void lenLessEquals(String text, int length, String message) {
 
     }
 

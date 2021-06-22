@@ -1,5 +1,6 @@
 package com.github.dttimes.simplejeex.lang;
 
+import com.github.dttimes.simplejeex.lang.base.Paths;
 import com.google.common.base.Strings;
 
 import java.util.Collection;
@@ -46,4 +47,11 @@ public class Ak47 {
         return null;
     }
 
+    public static final String format(String format, Object... objects) {
+        return com.github.dttimes.simplejeex.lang.base.Strings.format(format, objects);
+    }
+
+    public static final String path(String root, String... fragment) {
+        return Paths.path(root, fragment);
+    }
 }

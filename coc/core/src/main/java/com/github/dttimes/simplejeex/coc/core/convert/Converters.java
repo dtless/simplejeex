@@ -20,6 +20,14 @@ import java.util.stream.Collectors;
  */
 public class Converters {
 
+    public static final <S, T> T convert(S source, Class<T> clazz) {
+        return convert(source, clazz, null);
+    }
+
+    public static final <S, T> T convert(S source, Class<T> clazz, Consumer<T> then) {
+        return convert(source, new DefaultBeanCopyConverter<S, T>(clazz), then);
+    }
+
     public static final <S, T> T convert(S source, Converter<S, T> converter) {
         return convert(source, converter, null);
     }
@@ -34,6 +42,11 @@ public class Converters {
             then.accept(target);
         }
         return target;
+    }
+
+    public static final <S, T> List<T> convertList(List<S> sourceList, Class<T> clazz) {
+        return convertList(sourceList, new DefaultBeanCopyConverter<>(clazz), null);
+
     }
 
     public static final <S, T> List<T> convertList(List<S> sourceList, Converter<S, T> converter, Consumer<T> then) {

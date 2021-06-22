@@ -18,6 +18,10 @@ public class Paging<T> {
         this.records = Ak47.newLinkedList();
     }
 
+    public static final <T> Paging<T> page() {
+        return new Paging<>();
+    }
+
     /**
      * 总数
      */

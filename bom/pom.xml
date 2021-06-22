@@ -12,10 +12,12 @@
     <artifactId>bom</artifactId>
     <properties>
         <guava.version>30.1.1-jre</guava.version>
-        <spring-boot.version>2.5.0</spring-boot.version>
+        <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
+        <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
         <springdoc.version>1.5.9</springdoc.version>
         <swagger.version>2.1.9</swagger.version>
         <mybatis-plus.version>3.4.2</mybatis-plus.version>
+        <alibaba-cloud>2.2.5.RELEASE</alibaba-cloud>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -49,10 +51,65 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.github.dttimes.simplejeex</groupId>
+                <artifactId>lang</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.dttimes.simplejeex</groupId>
+                <artifactId>coc-persistence</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.dttimes.simplejeex</groupId>
+                <artifactId>coc-service</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.dttimes.simplejeex</groupId>
+                <artifactId>coc-web</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.dttimes.simplejeex</groupId>
+                <artifactId>dttimes-spring-boot-starter-devtools</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.dttimes.simplejeex</groupId>
+                <artifactId>dttimes-spring-boot-starter-security</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.dttimes.simplejeex</groupId>
+                <artifactId>dttimes-spring-boot-starter-storage-filesystem</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.dttimes.simplejeex</groupId>
+                <artifactId>dttimes-spring-boot-starter-redis</artifactId>
+                <version>${revision}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${alibaba-cloud}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

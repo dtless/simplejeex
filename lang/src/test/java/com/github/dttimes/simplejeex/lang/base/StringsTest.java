@@ -22,4 +22,10 @@ public class StringsTest {
         assertThat(Strings.isCharSequence(null)).as("空对象").isFalse();
         assertThat(Strings.isCharSequence(LocalDateTime.now())).as("非字符串").isFalse();
     }
+
+    @Test
+    public void test_format001() {
+        assertThat(Strings.format("a{}b{}", "xxx", "yyy")).isEqualTo("axxxbyyy");
+        assertThat(Strings.format("a{}b", "xxx")).isEqualTo("axxxb");
+    }
 }

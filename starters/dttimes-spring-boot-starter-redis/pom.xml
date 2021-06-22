@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.github.dttimes.simplejeex</groupId>
-        <artifactId>simplejeex</artifactId>
+        <artifactId>starters</artifactId>
         <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>scaffold</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>base</module>
-        <module>web</module>
-        <module>daemon</module>
-    </modules>
+    <artifactId>dttimes-spring-boot-starter-redis</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+    </dependencies>
 </project>

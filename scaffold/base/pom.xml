@@ -5,27 +5,24 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.github.dttimes.simplejeex</groupId>
-        <artifactId>simplejeex</artifactId>
+        <artifactId>scaffold</artifactId>
         <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>starters</artifactId>
+    <artifactId>scaffold-base</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>dttimes-spring-boot-starter-security</module>
-        <module>dttimes-spring-boot-starter-devtools</module>
-        <module>dttimes-spring-boot-starter-storage-filesystem</module>
-        <module>dttimes-spring-boot-starter-redis</module>
-    </modules>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.dttimes.simplejeex</groupId>
+            <artifactId>lang</artifactId>
         </dependency>
     </dependencies>
     <dependencyManagement>
